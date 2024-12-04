@@ -1,0 +1,364 @@
+<html><head><base href="." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgendaFácil - Agendamentos Online</title>
+
+<style>
+:root {
+  --primary: #4CAF50;
+  --secondary: #2196F3;
+  --dark: #333;
+  --light: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #f5f5f5;
+  overflow-x: hidden;
+}
+
+.header {
+  background: var(--light);
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary);
+  text-decoration: none;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--dark);
+  transition: color 0.3s;
+  padding: 0.5rem;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.mobile-menu-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.cta-button {
+  background: var(--primary);
+  color: var(--light);
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  text-align: center;
+  font-weight: 500;
+}
+
+.cta-button:hover {
+  background: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.hero {
+  margin-top: 80px;
+  padding: 6rem 1rem;
+  text-align: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 1.5rem;
+  color: var(--dark);
+  padding: 0 1rem;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  margin-bottom: 2.5rem;
+  color: #666;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0 1rem;
+}
+
+.features {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  background: var(--light);
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: all 0.4s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.feature-card h3 {
+  margin-bottom: 1.2rem;
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  color: var(--dark);
+}
+
+.feature-card p {
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  line-height: 1.7;
+  color: #666;
+}
+
+@media (max-width: 992px) {
+  .nav-links {
+    gap: 1.5rem;
+  }
+  
+  .features {
+    padding: 4rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--light);
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 0.8rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+    margin-left: auto;
+    margin-right: 1rem;
+  }
+
+  .hero {
+    padding: 4rem 1rem;
+    margin-top: 70px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 350px;
+    margin: 0 auto;
+    gap: 1rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .header {
+    padding: 0.8rem;
+  }
+
+  .hero {
+    padding: 3rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+  }
+
+  .hero p {
+    font-size: clamp(1rem, 2vw, 1.1rem);
+  }
+
+  .feature-card {
+    padding: 2rem;
+  }
+
+  .cta-button {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.95rem;
+  }
+}
+</style>
+</head>
+<body>
+  <header class="header">
+    <nav class="nav-container">
+      <a href="https://agendafacil.com" class="logo">
+        <svg width="30" height="30" viewBox="0 0 24 24" style="display: inline-block; vertical-align: middle;">
+          <circle cx="12" cy="12" r="10" fill="#4CAF50"/>
+          <path d="M9 12l2 2 4-4" stroke="white" stroke-width="2" fill="none"/>
+        </svg>
+        AgendaFácil
+      </a>
+      <button class="mobile-menu-btn">
+        <svg viewBox="0 0 24 24" fill="var(--dark)">
+          <rect y="4" width="24" height="2"/>
+          <rect y="11" width="24" height="2"/>
+          <rect y="18" width="24" height="2"/>
+        </svg>
+      </button>
+      <div class="nav-links">
+        <a href="https://agendafacil.com">Início</a>
+        <a href="https://agendafacil.com/sobre">Sobre</a>
+        <a href="https://agendafacil.com/login">Login</a>
+        <a href="https://agendafacil.com/contato">Contato</a>
+      </div>
+      <a href="https://agendafacil.com/cadastro" class="cta-button">Cadastre seu Negócio</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Facilite os agendamentos do seu negócio!</h1>
+    <p>Conectamos clientes a negócios locais, simplificando agendamentos online para serviços como salões, escritórios, clínicas e muito mais.</p>
+    <div class="hero-buttons">
+      <a href="https://agendafacil.com/comece" class="cta-button">Comece Agora</a>
+      <a href="https://agendafacil.com/saiba-mais" class="cta-button" style="background: var(--secondary);">Descubra Mais</a>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>Agendamento Integrado</h3>
+        <p>Sistema completo para gerenciar seus horários e clientes em um só lugar.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Perfil Personalizado</h3>
+        <p>Mostre seu trabalho com fotos, preços e informações importantes do seu negócio.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Pagamentos Online</h3>
+        <p>Aceite pagamentos via M-Pesa e outras carteiras digitais de forma segura.</p>
+      </div>
+    </div>
+  </section>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+mobileMenuBtn.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+  });
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, {
+  threshold: 0.1
+});
+
+document.querySelectorAll('.feature-card').forEach((card) => {
+  card.style.opacity = '0';
+  card.style.transform = 'translateY(20px)';
+  card.style.transition = 'all 0.5s ease';
+  observer.observe(card);
+});
+</script>
+
+</body></html>
